@@ -1,17 +1,22 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import { useEffect } from 'react';
+import React from "react";
+import { useEffect } from "react";
+import styles from "./SplashScreenStyle";
+import { View, Text } from "@gluestack-ui/themed";
 
-export default function SplashScreen({navigation}:any) {
+
+
+export default function SplashScreen({ navigation }: any) {
   useEffect(() => {
     setTimeout(() => {
-        navigation.navigate("TabNavigationScreens");
+      navigation.navigate("TabNavigationScreens");
     }, 5000);
-});
+  });
 
   return (
-    <View>
-      <Text>Weather</Text>
+    <View style={styles.mainSplashScreenView}>
+      <Text style={styles.weatherText}>Weather</Text>
+
+
     </View>
-  )
+  );
 }

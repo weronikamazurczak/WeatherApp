@@ -14,6 +14,7 @@
     "@gluestack-ui/config": "latest",
     "@gluestack-ui/themed": "latest",
     "@legendapp/motion": "latest",
+    "@react-native-masked-view/masked-view": "^0.3.1",
     "@react-navigation/bottom-tabs": "^6.5.11",
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/stack": "^6.3.20",
@@ -22,6 +23,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.71.14",
+    "react-native-linear-gradient": "^2.8.3",
     "react-native-svg": "13.4.0",
     "react-native-web": "~0.18.10",
     "typescript": "^4.9.4"

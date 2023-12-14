@@ -1,10 +1,11 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import React from "react";
+import { View, ScrollView } from "@gluestack-ui/themed";
+import styles from "./HomeStyle";
 
 export default function HomeScreen() {
   return (
-    <View>
-      <Text>HomeScreen</Text>
+    <View style = {styles.mainHomeScreenView}>
+      <ScrollView style={styles.homeScreenScrollView}></ScrollView>
     </View>
-  )
+  );
 }
