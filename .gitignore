@@ -2,3 +2,5 @@
 /.expo
 /.vscode
 /.npmignore
+
+src/SplashScreen/WeatherApiCredentials.tsx
