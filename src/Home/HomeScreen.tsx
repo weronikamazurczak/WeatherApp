@@ -5,8 +5,24 @@ import styles from "./HomeStyle";
 import { Feather } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
+import { useRoute } from "@react-navigation/native";
+
+interface RouteParams {
+  weatherData?:any;
+}
 
 export default function HomeScreen() {
+const route = useRoute();
+const routeParams = route.params as RouteParams;
+
+const sunriseDate = new Date(routeParams.weatherData.sys.sunrise * 1000);
+const sunriseTime = new Intl.DateTimeFormat('pl-PL', {
+  hour: 'numeric',
+  minute: 'numeric',
+}).format(sunriseDate);
+
+const date = new Date();
+
   return (
     <View style={styles.appContainerStyle}>
       <Image
@@ -16,29 +32,29 @@ export default function HomeScreen() {
         alt="cloudy"
       />
       <ScrollView style={styles.scrollViewContainerStyle}>
-        <Text style={styles.localizationTextStyle}>Location</Text>
-        <Text style={styles.dateTextStyle}>Tuesday 12 December</Text>
+        <Text style={styles.localizationTextStyle}>{routeParams.weatherData.name}</Text>
+        <Text style={styles.dateTextStyle}>{date.getDate()+'.'+date.getMonth()+'.'+date.getFullYear()}</Text>
 
         <Image
           style={styles.weatherDependentImageStyle}
           source={require("../../Images/cloudy.png")}
           alt="cloudy"
         />
-        <Text style={styles.temperatureTextStyle}> 1°C </Text>
-        <Text style={styles.weatherDescriptionStyle}>Partly cloudy</Text>
+        <Text style={styles.temperatureTextStyle}> {Math.round(routeParams.weatherData.main.feels_like)}°C </Text>
+        <Text style={styles.weatherDescriptionStyle}>{routeParams.weatherData.weather[0].description}</Text>
 
         <View style={styles.otherStats}>
           <View style={styles.weatherStats}>
             <Feather name="wind" size={24} color="white" />
-            <Text style={styles.weatherStatsText}> 5 m/s</Text>
+            <Text style={styles.weatherStatsText}>{routeParams.weatherData.wind.speed} m/s</Text>
           </View>
           <View style={styles.weatherStats}>
             <Ionicons name="water-outline" size={24} color="white" />
-            <Text style={styles.weatherStatsText}>83%</Text>
+            <Text style={styles.weatherStatsText}>{routeParams.weatherData.main.pressure} hPa</Text>
           </View>
           <View style={styles.weatherStats}>
             <Feather name="sunrise" size={24} color="white" />
-            <Text style={styles.weatherStatsText}>7:35 AM</Text>
+            <Text style={styles.weatherStatsText}>{sunriseTime}</Text>
           </View>
         </View>
 

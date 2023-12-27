@@ -35,7 +35,6 @@ const styles = StyleSheet.create({
     color: "white",
   },
   weatherDependentImageStyle: {
-    textAlign: "center",
     justifyContent: "center",
     alignSelf: "center",
     width: 183,
@@ -93,7 +92,6 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255, 255, 255, 0.15)'
   },
   weatherImageStyle:{
-    textAlign: "center",
     justifyContent: "center",
     alignSelf: "center",
     width: 64,

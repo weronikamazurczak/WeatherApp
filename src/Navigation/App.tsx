@@ -12,11 +12,18 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { Entypo } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
+import { useRoute } from "@react-navigation/native";
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
-
+interface RouteParams {
+  weatherData?: any;
+}
 function TabNavigator() {
+  const route = useRoute();
+  //teraz trzeba to do jakies zmiennej przypisac zeby cos z tym zrobic
+  const routedFields = route.params as RouteParams;
+
   return (
     <Tab.Navigator
       screenOptions={{
@@ -33,6 +40,7 @@ function TabNavigator() {
             <Entypo name="home" size={24} color={color} />
           ),
         }}
+        initialParams={routedFields}
       />
       <Tab.Screen
         name="Search"

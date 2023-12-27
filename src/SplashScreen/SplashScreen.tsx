@@ -2,13 +2,21 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import styles from "./SplashScreenStyle";
 import { View, Text } from "@gluestack-ui/themed";
-import { ApiObject } from "./WeatherApiCredentials";
+import { ApiObject } from "../api.config";
+import * as Location from 'expo-location';
 
 export default function SplashScreen({ navigation }: any) {
 
   useEffect(() => { 
     (async () => {
-      await getWeatherData({ navigation }); 
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== 'granted') {
+        return;
+      }
+
+      let location = await Location.getCurrentPositionAsync({});
+      if(location)
+      await getWeatherData({ navigation }, {...location}); // to jest kopia obiektu
     })()
   },[]);
   return (
@@ -18,13 +26,11 @@ export default function SplashScreen({ navigation }: any) {
   );
 }
 
-async function getWeatherData({ navigation }: any) {
-  const link = `https://api.openweathermap.org/data/2.5/weather?lat=50.88599804710416&lon=20.655638450157436&appid=${ApiObject.key}`;
+async function getWeatherData({ navigation }: any, location:any) {
+  const link = `https://api.openweathermap.org/data/2.5/weather?lat=${location.coords.latitude}&lon=${location.coords.longitude}&appid=${ApiObject.key}&units=metric`;
   const response = await fetch(link);
-  console.log(await response.json());
+  const data = await response.json();
   setTimeout(() => {
-    navigation.navigate("TabNavigationScreens");
+    navigation.navigate("TabNavigationScreens",{weatherData: data});
   }, 5000);
 }
-
-
