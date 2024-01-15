@@ -8,20 +8,22 @@ import { AntDesign } from "@expo/vector-icons";
 import { useRoute } from "@react-navigation/native";
 
 interface RouteParams {
-  weatherData?:any;
+  weatherData?: any;
+  weatherForNextDays?: any;
 }
 
 export default function HomeScreen() {
-const route = useRoute();
-const routeParams = route.params as RouteParams;
+  const route = useRoute();
+  const routeParams = route.params as RouteParams;
 
-const sunriseDate = new Date(routeParams.weatherData.sys.sunrise * 1000);
-const sunriseTime = new Intl.DateTimeFormat('pl-PL', {
-  hour: 'numeric',
-  minute: 'numeric',
-}).format(sunriseDate);
+  const sunriseDate = new Date(routeParams.weatherData.sys.sunrise * 1000);
+  const sunriseTime = new Intl.DateTimeFormat("pl-PL", {
+    hour: "numeric",
+    minute: "numeric",
+  }).format(sunriseDate);
 
-const date = new Date();
+  const date = new Date();
+  const weatherForNextDays = Object.values(routeParams.weatherForNextDays.list);
 
   return (
     <View style={styles.appContainerStyle}>
@@ -32,25 +34,38 @@ const date = new Date();
         alt="cloudy"
       />
       <ScrollView style={styles.scrollViewContainerStyle}>
-        <Text style={styles.localizationTextStyle}>{routeParams.weatherData.name}</Text>
-        <Text style={styles.dateTextStyle}>{date.getDate()+'.'+date.getMonth()+'.'+date.getFullYear()}</Text>
+        <Text style={styles.localizationTextStyle}>
+          {routeParams.weatherData.name}
+        </Text>
+        <Text style={styles.dateTextStyle}>
+          {date.getDate() + "." + date.getMonth() + "." + date.getFullYear()}
+        </Text>
 
         <Image
           style={styles.weatherDependentImageStyle}
-          source={require("../../Images/cloudy.png")}
+          source={`https://openweathermap.org/img/wn/${routeParams.weatherData.weather[0].icon}@2x.png`}
           alt="cloudy"
         />
-        <Text style={styles.temperatureTextStyle}> {Math.round(routeParams.weatherData.main.feels_like)}°C </Text>
-        <Text style={styles.weatherDescriptionStyle}>{routeParams.weatherData.weather[0].description}</Text>
+        <Text style={styles.temperatureTextStyle}>
+          {" "}
+          {Math.round(routeParams.weatherData.main.feels_like)}°C{" "}
+        </Text>
+        <Text style={styles.weatherDescriptionStyle}>
+          {routeParams.weatherData.weather[0].description}
+        </Text>
 
         <View style={styles.otherStats}>
           <View style={styles.weatherStats}>
             <Feather name="wind" size={24} color="white" />
-            <Text style={styles.weatherStatsText}>{routeParams.weatherData.wind.speed} m/s</Text>
+            <Text style={styles.weatherStatsText}>
+              {routeParams.weatherData.wind.speed} m/s
+            </Text>
           </View>
           <View style={styles.weatherStats}>
             <Ionicons name="water-outline" size={24} color="white" />
-            <Text style={styles.weatherStatsText}>{routeParams.weatherData.main.pressure} hPa</Text>
+            <Text style={styles.weatherStatsText}>
+              {routeParams.weatherData.main.pressure} hPa
+            </Text>
           </View>
           <View style={styles.weatherStats}>
             <Feather name="sunrise" size={24} color="white" />
@@ -65,70 +80,26 @@ const date = new Date();
           </View>
 
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            <View style={styles.forecastForNextDaysScrollView}>
-              <Image
-                style={styles.weatherImageStyle}
-                source={require("../../Images/2682816_cloud_cloudy_forecast_precipitation_snow_icon.png")}
-                alt="snow"
-              />
-              <Text style={styles.weatherStatsText}>Monday</Text>
-              <Text style={styles.weatherStatsText}>-5°C</Text>
-            </View>
-            <View style={styles.forecastForNextDaysScrollView}>
-              <Image
-                style={styles.weatherImageStyle}
-                source={require("../../Images/2682835_cloud_cloudy_forecast_precipitation_rain_icon.png")}
-                alt="snow"
-              />
-              <Text style={styles.weatherStatsText}>Tuesday </Text>
-              <Text style={styles.weatherStatsText}>-5°C</Text>
-            </View>
-            <View style={styles.forecastForNextDaysScrollView}>
-              <Image
-                style={styles.weatherImageStyle}
-                source={require("../../Images/2682848_day_forecast_sun_sunny_weather_icon.png")}
-                alt="snow"
-              />
-              <Text style={styles.weatherStatsText}>Wednesday </Text>
-              <Text style={styles.weatherStatsText}>-10°C</Text>
-            </View>
-            <View style={styles.forecastForNextDaysScrollView}>
-              <Image
-                style={styles.weatherImageStyle}
-                source={require("../../Images/2682816_cloud_cloudy_forecast_precipitation_snow_icon.png")}
-                alt="snow"
-              />
-              <Text style={styles.weatherStatsText}>Thursday </Text>
-              <Text style={styles.weatherStatsText}>-4°C</Text>
-            </View>
-            <View style={styles.forecastForNextDaysScrollView}>
-              <Image
-                style={styles.weatherImageStyle}
-                source={require("../../Images/2682823_forecast_snow_snowflake_weather_icon.png")}
-                alt="snow"
-              />
-              <Text style={styles.weatherStatsText}>Friday </Text>
-              <Text style={styles.weatherStatsText}>-2°C</Text>
-            </View>
-            <View style={styles.forecastForNextDaysScrollView}>
-              <Image
-                style={styles.weatherImageStyle}
-                source={require("../../Images/2682815_cloud_day_forecast_precipitation_snow_icon.png")}
-                alt="snow"
-              />
-              <Text style={styles.weatherStatsText}>Saturday </Text>
-              <Text style={styles.weatherStatsText}>0°C</Text>
-            </View>
-
-            <View style={styles.forecastForNextDaysScrollView}>
-              <Image
-                style={styles.weatherImageStyle}
-                source={require("../../Images/2682850_cloud_clouds_cloudy_forecast_weather_icon.png")}
-                alt="snow"
-              />
-              <Text style={styles.weatherStatsText}>Sunday </Text>
-              <Text style={styles.weatherStatsText}>2°C</Text>
-            </View>
+            {weatherForNextDays.map((singleForecastWeatherData: any, index) => {
+              console.log(singleForecastWeatherData);
+              return (
+                <View style={styles.forecastForNextDaysScrollView} key={index}>
+                  <Image
+                    style={styles.weatherImageStyle}
+                    source={`https://openweathermap.org/img/wn/${singleForecastWeatherData.weather[0].icon}@2x.png`}
+                    alt="snow"
+                  />
+                  <Text style={styles.weatherStatsText}>
+                    {" "}
+                    {singleForecastWeatherData.dt_txt}{" "}
+                  </Text>
+                  <Text style={styles.weatherStatsText}>
+                    {" "}
+                    {singleForecastWeatherData.main.feels_like}
+                  </Text>
+                </View>
+              );
+            })}
           </ScrollView>
         </View>
       </ScrollView>
