@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import styles from "./SplashScreenStyle";
 import { View, Text } from "@gluestack-ui/themed";
 import { ApiObject } from "../api.config";

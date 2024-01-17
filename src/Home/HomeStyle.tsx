@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
     height: "100%",
     width: "100%",
     alignItems: "center",
+    backgroundColor: "#1F9BF4",
   },
   background: {
     position: "absolute",
@@ -39,7 +40,6 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     width: 183,
     height: 162,
-    marginTop: "15%",
   },
   temperatureTextStyle: {
     color: "white",
@@ -60,26 +60,26 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     marginHorizontal: "10%",
-    marginVertical: "3%"
+    marginVertical: "3%",
   },
   weatherStats: {
     flexDirection: "row",
-    justifyContent: "space-between",
+
     alignItems: "center",
   },
-  weatherStatsText:{
+  weatherStatsText: {
     color: "white",
   },
-  forecastForNextDays:{
+  forecastForNextDays: {
     marginBottom: 10,
     marginVertical: 20,
   },
-  dailyForecastCalendar:{
+  dailyForecastCalendar: {
     flexDirection: "row",
     alignItems: "center",
     marginHorizontal: "4%",
   },
-  forecastForNextDaysScrollView:{
+  forecastForNextDaysScrollView: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
@@ -89,15 +89,66 @@ const styles = StyleSheet.create({
     marginRight: 16,
     marginLeft: 16,
     marginVertical: 4,
-    backgroundColor: 'rgba(255, 255, 255, 0.15)'
+    backgroundColor: "rgba(255, 255, 255, 0.15)",
   },
-  weatherImageStyle:{
+  weatherImageStyle: {
     justifyContent: "center",
     alignSelf: "center",
-    width: 64,
-    height: 64,
-    marginTop: "15%",
-  }
+  },
+  weatherForecastStatsText: {
+    color: "white",
+    marginTop: "10%",
+  },
+  weatherForecastTimeStatsText: {
+    color: "white",
+    marginBottom: "10%",
+  },
+  additionalParametrsStyle: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    width: 96,
+    borderRadius: 48,
+    paddingVertical: 12,
+    marginRight: 16,
+    marginLeft: 16,
+    marginVertical: 4,
+    backgroundColor: '#93c5fd',
+    //backgroundColor: "rgba(255, 255, 255, 0.15)",
+  },
+  textInfromation: {
+    flexDirection: "row",
+  },
+  weatherInfoGrid: {
+    flex: 1,
+
+    paddingHorizontal: 10,
+  },
+  row: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: "3%",
+    marginTop: "5%",
+  },
+  box: {
+    justifyContent: "center",
+    width: "48%",
+    backgroundColor: "rgba(255, 255, 255, 0.15)",
+    borderRadius: 48,
+    color: "white",
+    paddingTop: 10,
+    paddingLeft: 40,
+
+  },
+  weatherInfoStatsText: {
+    color: "white",
+  },
+  iconContainer: {
+    flexDirection: "row",
+    paddingTop: "3%",
+    paddingBottom: "3%",
+    marginBottom:'5%'
+  },
 });
 
 export default styles;
