@@ -4,14 +4,11 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import SplashScreen from "../SplashScreen/SplashScreen";
 import HomeScreen from "../Home/HomeScreen";
 import SearchScreen from "../SearchView/SearchScreen";
-import MapScreen from "../Map/MapScreen";
-import SettingScreen from "../Setting/SettingScreen";
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Entypo } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
-import { Ionicons } from "@expo/vector-icons";
 import { useRoute } from "@react-navigation/native";
 
 const Tab = createBottomTabNavigator();
@@ -48,24 +45,6 @@ function TabNavigator() {
         options={{
           tabBarIcon: ({ color }) => (
             <FontAwesome name="search-plus" size={24} color={color} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Map"
-        component={MapScreen}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <FontAwesome name="map" size={24} color={color} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Settings"
-        component={SettingScreen}
-        options={{
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="ios-settings" size={24} color={color} />
           ),
         }}
       />

@@ -5,7 +5,6 @@ import { Feather } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 import { useRoute } from "@react-navigation/native";
-import { Pressable } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 
@@ -40,12 +39,6 @@ export default function HomeScreen({ navigation }: any) {
 
   return (
     <View style={styles.appContainerStyle}>
-      {/* <Image
-        blurRadius={50}
-        style={styles.background}
-        source={require("../../Images/wave_background.png")}
-        alt="cloudy"
-      /> */}
       <ScrollView style={styles.scrollViewContainerStyle}>
         <Text style={styles.localizationTextStyle}>
           {routeParams.weatherData.name}
@@ -123,7 +116,7 @@ export default function HomeScreen({ navigation }: any) {
               <View style={styles.iconContainer}>
                 <MaterialIcons name="visibility" size={24} color="white" />
                 <Text style={styles.weatherStatsText}>
-                  {routeParams.weatherData.visibility} m
+                  {routeParams.weatherData.visibility}
                 </Text>
               </View>
             </View>
