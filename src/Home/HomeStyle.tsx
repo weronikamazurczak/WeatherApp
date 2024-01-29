@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
     marginRight: 16,
     marginLeft: 16,
     marginVertical: 4,
-    backgroundColor: '#93c5fd',
+    backgroundColor: "#93c5fd",
     //backgroundColor: "rgba(255, 255, 255, 0.15)",
   },
   textInfromation: {
@@ -121,7 +121,6 @@ const styles = StyleSheet.create({
   },
   weatherInfoGrid: {
     flex: 1,
-
     paddingHorizontal: 10,
   },
   row: {
@@ -138,7 +137,6 @@ const styles = StyleSheet.create({
     color: "white",
     paddingTop: 10,
     paddingLeft: 40,
-
   },
   weatherInfoStatsText: {
     color: "white",
@@ -147,7 +145,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     paddingTop: "3%",
     paddingBottom: "3%",
-    marginBottom:'5%'
+    marginBottom: "5%",
   },
 });
 

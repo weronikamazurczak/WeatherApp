@@ -5,7 +5,6 @@ const styles = StyleSheet.create({
   mainSplashScreenView: {
     flex: 1,
     justifyContent: "center",
-
   },
   weatherText: {
     textAlign: "center",
