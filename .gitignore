@@ -4,5 +4,5 @@
 /.npmignore
 
 
-src/SplashScreen/WeatherApiCredentials.tsx
-api.config.js
+
+/src/api.config.js
