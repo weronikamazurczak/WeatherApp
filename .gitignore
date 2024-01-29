@@ -5,3 +5,4 @@
 
 
 src/SplashScreen/WeatherApiCredentials.tsx
+api.config.js

@@ -1,35 +1,22 @@
-import {
-  View,
-  Image,
-  ScrollView,
-  Text,
-  Input,
-  InputField,
-} from "@gluestack-ui/themed";
+import { View } from "@gluestack-ui/themed";
+import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import React from "react";
 import styles from "./SearchViewStyle";
 
 export default function SearchScreen() {
   return (
-    <View style={styles.mainSearchScreenView}>
-      <Image
-        blurRadius={50}
-        style={styles.background}
-        source={require("../../Images/wave_background.png")}
-        alt="cloudy"
+    <View >
+      <GooglePlacesAutocomplete
+        placeholder="Search"
+        onPress={(data, details = null) => {
+          // 'details' is provided when fetchDetails = true
+          console.log(data, details);
+        }}
+        query={{
+          key: "YOUR API KEY",
+          language: "pl",
+        }}
       />
-      <View style={styles.searchInputView}>
-        <Input
-          style={styles.searchInput}
-          variant="outline"
-          size="lg"
-          isDisabled={false}
-          isInvalid={false}
-          isReadOnly={false}
-        >
-          <InputField style={styles.searchInputText} placeholder="Search city" />
-        </Input>
-      </View>
     </View>
   );
 }
