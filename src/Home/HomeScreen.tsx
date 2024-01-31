@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Image, ScrollView, Text, Button } from "@gluestack-ui/themed";
+import { View, Image, ScrollView, Text } from "@gluestack-ui/themed";
 import styles from "./HomeStyle";
 import { Feather } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
