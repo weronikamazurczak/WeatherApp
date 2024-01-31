@@ -11,6 +11,14 @@ WeatherApp is a weather application that utilizes three different APIs to delive
 **5 Day / 3 Hour Forecast** The application uses the 5 Day / 3 Hour Forecast API from OpenWeather to provide a detailed weather forecast for the next 5 days.
 
 **City Search**: The application uses Google Places API to allow users to search for cities worldwide and check the weather in the selected city. 
+
+## 📍 APIs
+
+    1. Google Places API
+    2. Current Weather Data API
+    3. 5 Day / 3 Hour Forecast API
+
+    
 ## 📱 Demo
 
 
@@ -20,11 +28,7 @@ https://github.com/weronikamazurczak/WeatherApp/assets/115980803/849b30a1-54fa-4
 
 
 
-## 📍 APIs
 
-    1. Google Places API
-    2. Current Weather Data API
-    3. 5 Day / 3 Hour Forecast API
 
 ## 🖌 Design
 
