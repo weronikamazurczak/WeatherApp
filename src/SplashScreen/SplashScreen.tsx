@@ -3,6 +3,7 @@ import styles from "./SplashScreenStyle";
 import { View, Text } from "@gluestack-ui/themed";
 import { ApiObject } from "../api.config";
 import * as Location from "expo-location";
+import LottieView from "lottie-react-native";
 
 export default function SplashScreen({ navigation }: any) {
   useEffect(() => {
@@ -18,7 +19,12 @@ export default function SplashScreen({ navigation }: any) {
   }, []);
   return (
     <View style={styles.mainSplashScreenView}>
-      <Text style={styles.weatherText}>Weather</Text>
+      <LottieView
+      style={styles.mainSplashScreenView}
+        source={require("../../assets/Animation.json")}
+        autoPlay
+        loop
+      />
     </View>
   );
 }
