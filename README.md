@@ -26,7 +26,7 @@ https://github.com/weronikamazurczak/WeatherApp/assets/115980803/849b30a1-54fa-4
     2. Current Weather Data API
     3. 5 Day / 3 Hour Forecast API
 
-## 👩‍💻 Authors
+## 👩‍💻 Author
 
 - [@weronikamazurczak](https://github.com/weronikamazurczak)
 
