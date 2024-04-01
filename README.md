@@ -34,7 +34,7 @@ https://github.com/weronikamazurczak/WeatherApp/assets/115980803/849b30a1-54fa-4
 
 The style of the application was designed in Figma. You can view the design here: https://www.figma.com/proto/XUzDY8U51YCWCmNSeIuxUM/Weather-App?type=design&node-id=36-1159&t=fDoSqWBxvVEYO9H9-1&scaling=scale-down&page-id=0%3A1&mode=design
 
-## 👩‍💻 Author
 
-- [@weronikamazurczak](https://github.com/weronikamazurczak)
 
+## ©️ License
+This project is licensed under the terms of the MIT license. See [LICENSE](LICENSE) for more details.
